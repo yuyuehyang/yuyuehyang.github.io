@@ -1,0 +1,223 @@
+<<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>網頁範例</title>
+    <!-- 引入 Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* 這是用來隱藏固定橫向選單的樣式 */
+        #fixed-navbar {
+            display: none;
+        }
+
+        /* 自訂首頁字體大小 */
+        .navbar-nav .nav-link[href="#banner"] {
+            font-size: 24px; /* 自訂字體大小 */
+        }
+
+        /* 橫向選單背景色改為白色，高度設為10%的視窗高度 */
+        .navbar {
+            background-color: white; /* 白色背景色 */
+            height: 10vh; /* 將選單高度設為10%的視窗高度 */
+        }
+
+        /* 垂直對齊選單項目 */
+        .navbar-nav {
+            display: flex;
+            flex-direction: column; /* 垂直排列選單項目 */
+            justify-content: space-between; /* 垂直對齊項目，保持間距 */
+            height: 100%; /* 讓選單項目充滿整個高度 */
+        }
+
+        /* 調整選單項目的上下內邊距以實現垂直對齊 */
+        .nav-item {
+            padding: 1rem 1rem; /* 調整上下內邊距 */
+        }
+
+        /* 區段 Banner 樣式，高度設為90%的視窗高度 */
+        .section-banner {
+            background-color: #ff9999; /* 淺紅色背景色 */
+            color: white; /* 字體顏色改為白色 */
+            font-weight: bold; /* 字體加粗 */
+            height: 90vh; /* 將 Banner 高度設為90%的視窗高度 */
+            display: flex;
+            justify-content: center; /* 文字水平置中 */
+            align-items: center; /* 文字垂直置中 */
+            margin-top: 10vh; /* 調整上外邊距 */
+        }
+
+        /* 這裡是 Banner 樣式，背景色改為稍深但不太深的藍色 */
+        #banner {
+            background-color: #8aacc8; /* 淺灰藍色背景色 */
+            color: #333; /* 文字顏色改為深灰色 */
+        }
+
+        /* 這裡是 Banner 文字樣式，文字改為 h2 */
+        #banner h2 {
+            font-size: 2.5rem; /* 字體大小稍微調大一點 */
+            font-weight: normal; /* 取消字體加粗 */
+        }
+
+        /* 新增樣式以符合區段內容需求 */
+        .section-content {
+            background-color: #f9f9f9; /* 更淺的灰色背景色，稍微淺一點 */
+            padding: 1rem; /* 上下左右留白 */
+        }
+
+        .section-content-block {
+            background-color: #ccc; /* 更淺的灰色背景色 */
+            border-radius: 10px; /* 圓角 */
+            padding: 2rem; /* 上下左右留白 */
+            color: #333; /* 文字顏色設為深灰色 */
+        }
+
+        /* 將區段內容的文字靠左對齊 */
+        .section-content-block p {
+            text-align: left;
+        }
+
+        /* 將"區段內容及區塊"的文字靠左對齊 */
+        .section-content-block h3 {
+            text-align: left;
+        }
+
+        /* 新增 banner 的上外邊距 */
+        .section-banner {
+            margin-top: 10vh; /* 增加上外邊距，根據需要調整 */
+        }
+
+        /* 新增空白區塊以避免橫向選單遮擋 Banner */
+        #navbar-spacer {
+            height: 10vh; /* 與選單高度相同，確保不會遮擋 Banner */
+        }
+    </style>
+</head>
+<body>
+    <!-- 區塊 1: Banner -->
+    <div id="banner" class="jumbotron text-center text-white">
+        <h2 class="display-4">這裡是Banner</h2>
+    </div>
+    
+    <!-- 區塊 2: 橫向選單 -->
+    <div id="navbar-spacer"></div> <!-- 空白區塊，避免遮擋 Banner -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#banner" onclick="scrollToBanner()">首頁</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section1" onclick="scrollToSection('#section1')">區段1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section2" onclick="scrollToSection('#section2')">區段2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section3" onclick="scrollToSection('#section3')">區段3</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 區塊 3: 區段1 Banner -->
+    <div id="section1" class="jumbotron text-center text-white section-banner">
+        <h2 class="display-4">區段1 Banner</h2>
+    </div>
+    
+    <!-- 區塊 4: 區段1 內容 -->
+    <div id="content1" class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="text-center">
+                    <div class="section-content">
+                        <div class="section-content-block">
+                            <h3>區段1 內容</h3>
+                            <p>這是區段1的內容。<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in libero nec dolor luctus bibendum.</p>
+                            <p>Quisque vel quam nec massa dictum varius ac eu urna. Suspendisse ut tristique ex.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 區塊 5: 區段2 Banner -->
+    <div id="section2" class="jumbotron text-center text-white section-banner">
+        <h2 class="display-4">區段2 Banner</h2>
+    </div>
+    
+    <!-- 區塊 6: 區段2 內容 -->
+    <div id="content2" class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="text-center">
+                    <div class="section-content">
+                        <div class="section-content-block">
+                            <h3>區段2 內容</h3>
+                            <p>這是區段2的內容。<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in libero nec dolor luctus bibendum.</p>
+                            <p>Quisque vel quam nec massa dictum varius ac eu urna. Suspendisse ut tristique ex.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 區塊 7: 區段3 Banner -->
+    <div id="section3" class="jumbotron text-center text-white section-banner">
+        <h2 class="display-4">區段3 Banner</h2>
+    </div>
+    
+    <!-- 區塊 8: 區段3 內容 -->
+    <div id="content3" class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="text-center">
+                    <div class="section-content">
+                        <div class="section-content-block">
+                            <h3>區段3 內容</h3>
+                            <p>這是區段3的內容。<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in libero nec dolor luctus bibendum.</p>
+                            <p>Quisque vel quam nec massa dictum varius ac eu urna. Suspendisse ut tristique ex.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入 Bootstrap JavaScript 和 jQuery（可選） -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <!-- JavaScript 用於固定選單和平滑滾動 -->
+    <script>
+        // 平滑滾動至指定區塊
+        function scrollToSection(sectionId) {
+            const section = document.querySelector(sectionId);
+            section.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        }
+
+        function scrollToBanner() {
+            const banner = document.querySelector('#banner');
+            banner.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        }
+
+        window.addEventListener('scroll', function() {
+            var banner = document.getElementById('banner');
+            var navbar = document.getElementById('navbar');
+            if (window.scrollY >= banner.offsetHeight) {
+                navbar.classList.add('fixed-top');
+                banner.style.marginBottom = navbar.offsetHeight + 'px'; // 避免跑到頁面下方
+            } else {
+                navbar.classList.remove('fixed-top');
+                banner.style.marginBottom = '0';
+            }
+        });
+    </script>
+</body>
+</html>
